@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Richard Jeranson</h1>
+  <p class="hero-tag">Naval Reserve veteran &middot; pattern-maker &middot; musician &middot; inventor &middot; husband, father, grandfather</p>
+  <p class="hero-dates">October 25, 1927 &mdash; December 9, 2025 &middot; ninety-eight years</p>
+</section>
+
+<section class="bio">
+  <h2>His story so far</h2>
+  <p class="bio-note">
+    This is what we know right now &mdash; pieced together from family memory.
+    Names, dates, and details will be filled in and corrected as the family gathers more.
+    If you spot something wrong or want to add to it,
+    please <a href="{{ url_for('add_memory') }}">tell us</a>.
+  </p>
+
+  <div class="bio-grid">
+    <div class="bio-card">
+      <h3>Beginnings</h3>
+      <p>
+        Born October 25, 1927 in <strong>Duluth, Minnesota</strong>, in a hospital.
+        Adopted as a child by <strong>Ernst Jeranson</strong>, who gave him his name and
+        whose memory carries forward through his children and grandchildren.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>The Navy years</h3>
+      <p>
+        Enlisted in the United States Naval Reserve as a young man and served as a
+        <strong>Petty Officer Third Class, Class V&#8209;6 (USNR)</strong>.
+        Honorably discharged in <strong>1946 from Naval Air Station Corpus Christi, Texas</strong>
+        &mdash; the largest naval aviation training command of the Second World War.
+        He later served again during the <strong>Korean War</strong>.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>The pattern shop</h3>
+      <p>
+        Owned and operated a <strong>wood and pattern shop</strong> in the
+        Minneapolis-St.&nbsp;Paul area for many years.
+        Pattern&#8209;making is the craft behind every casting in industrial manufacturing &mdash;
+        the wooden masters foundries pour molten metal around. Quiet work, exact work,
+        the kind that rewarded his hands.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Music</h3>
+      <p>
+        He was a <strong>musician</strong> as well as a maker, and he didn&rsquo;t just play guitars
+        &mdash; he <em>modified</em> them. The same hands that turned wooden patterns turned them
+        toward instruments. The family is gathering details on the pieces he played and the
+        modifications he was proud of.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Inventor</h3>
+      <p>
+        He held <strong>several patents</strong>. One the family remembers is a
+        <strong>hand-pedaled bicycle</strong> &mdash; a bike you could power with your arms
+        instead of your legs. There were others. We&rsquo;re still tracking them down.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Family home</h3>
+      <p>
+        For decades the family home was at <strong>6911 East River Road NE, Fridley, Minnesota</strong>
+        &mdash; on the Mississippi, looking toward the river all year round.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Mercy Hospital</h3>
+      <p>
+        Had heart surgery at <strong>Mercy Hospital</strong> in his late 70s and recovered to
+        keep going for almost two more decades. His grandson Ryan was born at the same Mercy
+        Hospital in April 1998 &mdash; one Jeranson generation arriving as another was being patched up.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Going home</h3>
+      <p>
+        Passed away <strong>December 9, 2025 in Prescott, Arizona</strong>, age 98.
+        He&rsquo;ll be laid to rest with full military honors at
+        <strong>Fort Snelling National Cemetery</strong> in Minneapolis on
+        <strong>May 20, 2026</strong>, with a 21&#8209;gun salute &mdash; coming home to Minnesota
+        one more time.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>His family</h3>
+      <p>
+        Married <strong>Joan &mdash; &ldquo;Joni&rdquo; &mdash; Jeranson</strong> (n&eacute;e Lions),
+        an artist whose creative life sat alongside her struggles with alcohol.
+        She had a twin sister, <strong>Judy Lions</strong>.
+      </p>
+      <p>
+        Their children include <strong>Gary Jeranson</strong>, <strong>Rick Jeranson</strong>
+        (passed), and Ryan&rsquo;s mother &mdash; the daughter who&rsquo;s gathering this
+        page for the family.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <h3>Aunts &amp; uncles of the heart</h3>
+      <p>
+        Some family is blood and some family is the people who showed up. Three names
+        belong here:
+        <strong>Bernice Blaske</strong>, <strong>June Parks</strong>, and
+        <strong>Kenny Anderson</strong>. June especially was &ldquo;like a mom&rdquo;
+        to his daughter &mdash; stepping in with the kind of steady mothering that
+        not every mother is able to give. Bernice and June have passed; Kenny is
+        an uncle by chosen family, not blood, and a permanent part of this story.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-card cta-add">
+    <h3>Have a memory of him?</h3>
+    <p>Stories, photos, songs you remember him playing, things he made, lessons he gave you.
+       Anything is welcome. The site is for the family.</p>
+    <a class="btn btn-primary" href="{{ url_for('add_memory') }}">Add a memory</a>
+  </div>
+  <div class="cta-card cta-view">
+    <h3>{{ memory_count }} memor{{ 'y' if memory_count == 1 else 'ies' }} so far</h3>
+    <p>See what the family has shared. New ones appear at the top.</p>
+    <a class="btn btn-secondary" href="{{ url_for('memories') }}">Read memories</a>
+  </div>
+  <div class="cta-card cta-research">
+    <h3>Want to help dig up his story?</h3>
+    <p>Phone numbers, websites, and forms for finding more about his Navy service, his patents,
+       his ancestors, and his life. Things you can do from the kitchen table.</p>
+    <a class="btn btn-secondary" href="{{ url_for('research') }}">Family research guide</a>
+  </div>
+</section>
+{% endblock %}

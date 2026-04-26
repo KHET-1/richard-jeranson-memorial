@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}In Memory of Richard Jeranson{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="hdr">
+    <div class="hdr-inner">
+      <a class="hdr-title" href="{{ url_for('home') }}">
+        <span class="anchor-icon">⚓</span>
+        <span class="hdr-name">Richard Jeranson</span>
+        <span class="hdr-dates">October 25, 1927 &mdash; December 9, 2025</span>
+      </a>
+      <nav class="hdr-nav">
+        <a href="{{ url_for('home') }}">His Story</a>
+        <a href="{{ url_for('memories') }}">Memories</a>
+        <a href="{{ url_for('add_memory') }}">Add Yours</a>
+        <a href="{{ url_for('research') }}">Family Research</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="ftr">
+    <p>Full military honors at Fort Snelling National Cemetery &middot; May 20, 2026</p>
+    <p class="ftr-faint">Built with love by the family. If you can&rsquo;t access something on this page or want help adding a memory, ask Ryan.</p>
+  </footer>
+</body>
+</html>

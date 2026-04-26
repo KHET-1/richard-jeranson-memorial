@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Add a memory &middot; Richard Jeranson{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Add a memory</h1>
+  <p>Stories, songs, photos, lessons, jokes, anything you want to keep.
+     Whatever you share will appear on the <a href="{{ url_for('memories') }}">Memories</a> page for the family to read.</p>
+</section>
+
+{% if error %}
+<div class="form-error">{{ error }}</div>
+{% endif %}
+
+<form class="mem-form" method="POST" enctype="multipart/form-data" action="{{ url_for('add_memory') }}">
+  <div class="form-row">
+    <label for="name">Your name <span class="req">*</span></label>
+    <input id="name" name="name" type="text" maxlength="120" required value="{{ form.name or '' }}">
+  </div>
+
+  <div class="form-row">
+    <label for="relation">Your relation to him</label>
+    <input id="relation" name="relation" type="text" maxlength="120"
+           placeholder="daughter, son-in-law, grandson, friend, neighbor..."
+           value="{{ form.relation or '' }}">
+  </div>
+
+  <div class="form-row">
+    <label for="title">A short title for this memory</label>
+    <input id="title" name="title" type="text" maxlength="200"
+           placeholder="e.g. The bike he built me, His guitar songs, Fishing on the river..."
+           value="{{ form.title or '' }}">
+  </div>
+
+  <div class="form-row">
+    <label for="when_text">When did this happen?</label>
+    <input id="when_text" name="when_text" type="text" maxlength="120"
+           placeholder="A year, a season, or just 'I don&rsquo;t remember exactly'"
+           value="{{ form.when_text or '' }}">
+  </div>
+
+  <div class="form-row">
+    <label for="story">Your memory <span class="req">*</span></label>
+    <textarea id="story" name="story" rows="10" maxlength="8000" required
+              placeholder="Tell it the way you remember it. Don&rsquo;t worry about getting every detail perfect &mdash; the family will fill in the gaps together.">{{ form.story or '' }}</textarea>
+    <p class="form-hint">Up to 8,000 characters. Two blank lines between paragraphs.</p>
+  </div>
+
+  <div class="form-row">
+    <label for="photos">Photos (optional)</label>
+    <input id="photos" name="photos" type="file" accept="image/*" multiple>
+    <p class="form-hint">JPEG, PNG, GIF, WEBP, or HEIC up to 25 MB each. You can pick several at once.</p>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Share this memory</button>
+    <a href="{{ url_for('home') }}" class="btn btn-link">Cancel</a>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Memories &middot; Richard Jeranson{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Memories of Dick</h1>
+  <p>From the family. Newest at the top.</p>
+  <p><a class="btn btn-primary" href="{{ url_for('add_memory') }}">Add yours</a></p>
+</section>
+
+{% if memories|length == 0 %}
+<section class="empty">
+  <p>No memories shared yet. Be the first.</p>
+  <p><a class="btn btn-primary" href="{{ url_for('add_memory') }}">Add a memory</a></p>
+</section>
+{% else %}
+<section class="mem-list">
+  {% for m in memories %}
+  <article class="mem">
+    <header class="mem-head">
+      <h3 class="mem-title">{{ m.title or "A memory" }}</h3>
+      <p class="mem-byline">
+        <strong>{{ m.submitter_name }}</strong>
+        {% if m.submitter_relation %}<span class="mem-relation"> &middot; {{ m.submitter_relation }}</span>{% endif %}
+        {% if m.when_text %}<span class="mem-when"> &middot; {{ m.when_text }}</span>{% endif %}
+      </p>
+    </header>
+    <div class="mem-story">
+      {% for para in m.story.split("\n\n") %}
+      <p>{{ para }}</p>
+      {% endfor %}
+    </div>
+    {% if m.photos %}
+    <div class="mem-photos">
+      {% for p in m.photos %}
+      <a class="mem-photo-link" href="{{ url_for('photo', filename=p) }}" target="_blank">
+        <img class="mem-photo" src="{{ url_for('photo', filename=p) }}" alt="memory photo from {{ m.submitter_name }}">
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <p class="mem-ts">Shared {{ m.ts_utc[:10] }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}

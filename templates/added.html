@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Memory shared &middot; Richard Jeranson{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Thank you</h1>
+  <p>Your memory has been added to the family page.</p>
+</section>
+
+<article class="mem">
+  <header class="mem-head">
+    <h3 class="mem-title">{{ memory.title or "A memory" }}</h3>
+    <p class="mem-byline">
+      <strong>{{ memory.submitter_name }}</strong>
+      {% if memory.submitter_relation %}<span class="mem-relation"> &middot; {{ memory.submitter_relation }}</span>{% endif %}
+      {% if memory.when_text %}<span class="mem-when"> &middot; {{ memory.when_text }}</span>{% endif %}
+    </p>
+  </header>
+  <div class="mem-story">
+    {% for para in memory.story.split("\n\n") %}
+    <p>{{ para }}</p>
+    {% endfor %}
+  </div>
+  {% if memory.photos %}
+  <div class="mem-photos">
+    {% for p in memory.photos %}
+    <img class="mem-photo" src="{{ url_for('photo', filename=p) }}">
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+
+<div class="cta">
+  <div class="cta-card">
+    <h3>Add another?</h3>
+    <p><a class="btn btn-primary" href="{{ url_for('add_memory') }}">Share another memory</a></p>
+  </div>
+  <div class="cta-card">
+    <h3>See them all</h3>
+    <p><a class="btn btn-secondary" href="{{ url_for('memories') }}">Read the memories page</a></p>
+  </div>
+</div>
+{% endblock %}

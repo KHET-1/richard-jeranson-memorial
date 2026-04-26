@@ -1,0 +1,33 @@
+# Family data — never commit
+data/photos/
+data/memories.json
+data/*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+
+# Tunnel state
+.cloudflared/

@@ -1,0 +1,442 @@
+/* Richard Jeranson Memorial — quiet, dignified, family-warm.
+   Palette: parchment + ink + Navy blue (his service) + a little brass for accent. */
+
+:root {
+  --parchment: #f6f1e7;
+  --parchment-deep: #ece4d2;
+  --ink: #1f2433;
+  --ink-soft: #4a5060;
+  --muted: #7a7e85;
+  --rule: #d9cfba;
+  --navy: #1f3a5f;
+  --navy-soft: #2e547e;
+  --navy-pale: #e3ebf3;
+  --brass: #b08a4a;
+  --brass-soft: #d8c193;
+  --emerald: #3d6e54;
+  --shadow: 0 1px 3px rgba(31, 36, 51, 0.08), 0 6px 18px rgba(31, 36, 51, 0.06);
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: "Source Serif 4", "Source Serif Pro", Charter, Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--navy-soft); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ===== Header ===== */
+.hdr {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-soft) 100%);
+  color: #f6f1e7;
+  border-bottom: 4px solid var(--brass);
+  padding: 18px 22px;
+  box-shadow: var(--shadow);
+}
+.hdr-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.hdr-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  flex-wrap: wrap;
+}
+.hdr-title:hover { color: inherit; }
+.anchor-icon {
+  font-size: 22px;
+  color: var(--brass-soft);
+  transform: translateY(2px);
+}
+.hdr-name {
+  font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.hdr-dates {
+  color: var(--brass-soft);
+  font-size: 14px;
+  font-style: italic;
+}
+.hdr-nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.hdr-nav a {
+  color: #f6f1e7;
+  text-decoration: none;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.hdr-nav a:hover { border-bottom-color: var(--brass); color: var(--brass-soft); }
+
+/* ===== Main ===== */
+.main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 22px 60px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 28px 0 36px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+.hero h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+  color: var(--navy);
+}
+.hero-tag {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+  font-size: 19px;
+}
+.hero-dates {
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+/* Bio */
+.bio h2, .page-head h1, section.cta h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 36px;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+.bio-note {
+  background: var(--navy-pale);
+  border-left: 4px solid var(--navy);
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin: 0 0 28px;
+  color: var(--ink-soft);
+  font-size: 16px;
+}
+.bio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.bio-card {
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+}
+.bio-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: var(--navy);
+  border-bottom: 2px solid var(--brass-soft);
+  padding-bottom: 6px;
+}
+.bio-card p { margin: 0; color: var(--ink); }
+.bio-card strong { color: var(--navy); }
+
+/* CTA strip */
+.cta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 30px 0 10px;
+}
+.cta-card {
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.cta-card h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: var(--navy);
+}
+.cta-card p { margin: 0 0 14px; color: var(--ink-soft); }
+.cta-add { border-top: 4px solid var(--brass); }
+.cta-view { border-top: 4px solid var(--navy); }
+.cta-research { border-top: 4px solid var(--emerald); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 160ms ease;
+}
+.btn-primary {
+  background: var(--navy);
+  color: #f6f1e7;
+  border-color: var(--navy);
+}
+.btn-primary:hover {
+  background: var(--navy-soft);
+  color: #fff;
+}
+.btn-secondary {
+  background: #fffdf6;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-secondary:hover {
+  background: var(--navy-pale);
+}
+.btn-link {
+  background: transparent;
+  color: var(--ink-soft);
+  border: none;
+  text-decoration: underline;
+  padding: 10px 6px;
+}
+
+/* Page head */
+.page-head { margin-bottom: 28px; }
+.page-head p { color: var(--ink-soft); margin: 6px 0 0; }
+.empty {
+  text-align: center;
+  padding: 40px;
+  background: #fffdf6;
+  border: 1px dashed var(--rule);
+  border-radius: var(--radius);
+}
+
+/* Memories list */
+.mem-list { display: flex; flex-direction: column; gap: 22px; }
+.mem {
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+}
+.mem-head { margin-bottom: 8px; }
+.mem-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 24px;
+  margin: 0 0 4px;
+  color: var(--navy);
+}
+.mem-byline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.mem-relation, .mem-when { color: var(--muted); }
+.mem-story { margin: 14px 0; }
+.mem-story p { margin: 0 0 12px; }
+.mem-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.mem-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+}
+.mem-ts {
+  margin: 14px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Form */
+.mem-form {
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  max-width: 720px;
+}
+.form-row { margin-bottom: 18px; }
+.form-row label {
+  display: block;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.req { color: var(--brass); }
+.form-row input[type="text"],
+.form-row textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 17px;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fffaf0;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.form-row input[type="text"]:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(31, 58, 95, 0.18);
+}
+.form-row textarea { resize: vertical; }
+.form-row input[type="file"] {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.form-hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.form-error {
+  background: #fff1ec;
+  border: 1px solid #d97757;
+  color: #8a3a1d;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+}
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 22px;
+}
+
+/* Research page */
+.research { display: flex; flex-direction: column; gap: 22px; }
+.rcard {
+  background: #fffdf6;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+}
+.rcard-priority {
+  border-left: 5px solid var(--brass);
+  background: linear-gradient(180deg, #fffaef 0%, #fffdf6 70%);
+}
+.rcard-soft { border-left: 5px solid var(--emerald); }
+.rcard h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.rcall-list { padding-left: 20px; }
+.rcall-list > li { margin: 0 0 18px; }
+.rsublist {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 6px 6px;
+}
+.rsublist li {
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--rule);
+}
+.rsay {
+  display: block;
+  margin-top: 6px;
+  padding-left: 14px;
+  border-left: 3px solid var(--brass-soft);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.rlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rlist > li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.rlist > li:last-child { border-bottom: none; }
+.rlist strong { color: var(--navy); }
+.rhint {
+  background: var(--navy-pale);
+  border-left: 4px solid var(--navy);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* Footer */
+.ftr {
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  margin-top: 60px;
+  padding: 28px 22px 36px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.ftr p { margin: 4px 0; }
+.ftr-faint { color: var(--muted); font-style: italic; font-size: 13px; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .hero h1 { font-size: 38px; }
+  .hdr-name { font-size: 22px; }
+  .hdr-dates { display: block; width: 100%; }
+  .hdr-nav { gap: 14px; }
+  .hdr-nav a { font-size: 13px; }
+  .main { padding: 24px 16px 40px; }
+  .bio h2, .rcard h2, .page-head h1 { font-size: 28px; }
+  .mem-photo { height: 160px; }
+  .mem-form { padding: 20px; }
+}
