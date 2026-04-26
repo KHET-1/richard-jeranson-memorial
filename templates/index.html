@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="hero">
+  <div class="hero-watermark" aria-hidden="true"></div>
+  <p class="hero-eyebrow">In Loving Memory</p>
   <h1>Richard Jeranson</h1>
   <p class="hero-tag">Naval Reserve veteran &middot; pattern-maker &middot; musician &middot; inventor &middot; father &middot; grandfather</p>
+  <div class="hero-rule" aria-hidden="true">
+    <span class="hero-rule-line"></span>
+    <span class="hero-rule-glyph">&#10070;</span>
+    <span class="hero-rule-line"></span>
+  </div>
   <p class="hero-dates">October 25, 1927 &mdash; December 9, 2025 &middot; ninety-eight years</p>
 </section>
 
 <section class="bio">
+  <p class="section-eyebrow">A Life Remembered</p>
   <h2>His story so far</h2>
   <p class="bio-note">
     This is what we know right now &mdash; pieced together from family memory.
@@ -94,6 +102,12 @@
       </p>
     </div>
 
+    <div class="flourish-divider bio-flourish" aria-hidden="true">
+      <span class="flourish-line"></span>
+      <span class="flourish-glyph">&#10086;</span>
+      <span class="flourish-line"></span>
+    </div>
+
     <div class="bio-card">
       <h3>His family</h3>
       <p>
@@ -107,6 +121,21 @@
         one gathering this page for the family.
       </p>
     </div>
+
+    <section class="photographs bio-card-full" aria-labelledby="photographs-heading">
+      <p class="section-eyebrow">Photographs</p>
+      <h3 id="photographs-heading" class="photographs-title">Photographs</h3>
+      <div class="photo-empty-grid" role="presentation">
+        <div class="photo-empty-tile"></div>
+        <div class="photo-empty-tile"></div>
+        <div class="photo-empty-tile"></div>
+        <div class="photo-empty-tile"></div>
+      </div>
+      <p class="photographs-empty-msg">
+        Photos shared by the family will appear here.
+        <a class="photographs-cta" href="{{ url_for('add_memory') }}">Add yours &rarr;</a>
+      </p>
+    </section>
 
     <div class="bio-card">
       <h3>Close friends of the family</h3>
